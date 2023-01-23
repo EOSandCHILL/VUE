@@ -4,21 +4,43 @@ repo link: https://github.com/EOSandCHILL/VUE
 
 This readMe will be used for taking notes and displaying my progress towards learning view
 
------Vue Basics-----
+-----Vue Basics & Core Concepts-----
 
-VUE Basics - Core Syntax:
+--Creating and Connecting Vue App Instances--
 
-VUE Basics - Templates:
+const app = Vue.createApp();
 
-VUE Basics - Directives:
+- creates a Vue app. we use {} inside of the Vue.createApp() to pass in an object we use this objeect to configure the app.
 
-VUE Basics - Data:
+data:
 
-VUE Basics - Methods:
+- anything thats part of the object you return in data can now be used in your Vue controlled HTML part.
 
-VUE Basics - Computed Properties:
+- data key wants a function as a value. we can use original functions or we can use shorthand functions. this function should do one simple and important thing which is returning an object. With this we can set up and key value pairs with any property names of your choice.
 
-VUE Basics - Watchers:
+mount()
+
+- lets vue know which part of the page should be controlled by that vue app. Enter the id of the selector you wish vue to use. We use id's because we want unique selectors. This tells vue that we want to connect our Vue.createApp() to a specific id.
+
+--Interpolation and Data Binding--
+
+Interpolation {{}}
+
+- a special syntax that outputs data in the Vue controlled HTML part. Vue will scan the html code to detect certain features and syntax. You can reference your returned data object properties inside of the {{}}. Vue will make that connection and understand that you want to output the content stored inside of the {{}}
+
+--Binding Attributes with the "v-bind" Directive--
+
+- We dont always want to or can use string interpolation. if we want to add a link we cant put our string interpolation inside of a href. in order to do this we need to use Vue binding syntax. This allows us to use a vue directive which is instructions we add in our html code and we can use these directives on html elements like an anchor element for example.
+
+- v-bind
+
+v-bind is a directive and we use v-bind to give vue a set of instructions to do something. we use this to bind/set an attribute on an html element. we then tell v-bind what to bind by adding a : at the end and then adding the attribute after.
+
+v-bind example:
+
+<p>Learn more <a v-bind:href="vueLink">about Vue</a></p>
+
+Tells Vue to find and set the value of the ref attribute to something which is passed in between the opening and closing double qoutes and in there you can reference a value of your data object which is vueLink in this example.
 
 Basics:
 
@@ -31,10 +53,6 @@ JavaScript State - describes the status of the entire program or an individual o
 State that can trigger updates when changed are considered reactive. We can declare reactive state using Vue's reactive() API. Objects created from reactive() are JavaScript Proxies that work just like normal objects. reactive() only works on objects.
 
 ref(), on the other hand, can take any value type and create an object that exposes the inner value under a .value property
-
-mount()
-
-lets vue know which part of the page should be controlled by that vue app
 
 VUE Attributes:
 

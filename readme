@@ -4,6 +4,22 @@ repo link: https://github.com/EOSandCHILL/VUE
 
 This readMe will be used for taking notes and displaying my progress towards learning view
 
+-----Vue Basics-----
+
+VUE Basics - Core Syntax:
+
+VUE Basics - Templates:
+
+VUE Basics - Directives:
+
+VUE Basics - Data:
+
+VUE Basics - Methods:
+
+VUE Basics - Computed Properties:
+
+VUE Basics - Watchers:
+
 Basics:
 
 Single-File Component (SFC) - a reusable self-contained block of code that encapsulates HTML, CSS, and JavaScript that belong together, written inside a .Vue file.

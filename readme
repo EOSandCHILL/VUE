@@ -1,0 +1,15 @@
+Learning Vue for work (CBS)
+
+This readMe will be used for taking notes and displaying my progress towards learning view
+
+Basics:
+
+Single-File Component (SFC) - a reusable self-contained block of code that encapsulates HTML, CSS, and JavaScript that belong together, written inside a .Vue file.
+
+Declarative Rendering - a template syntax that extends HTML, we can describe how the HTML should look like based on the JavaScript state. When the state changes, the HTML updates automatically.
+
+JavaScript State - describes the status of the entire program or an individual object.
+
+State that can trigger updates when changed are considered reactive. We can declare reactive state using Vue's reactive() API. Objects created from reactive() are JavaScript Proxies that work just like normal objects. reactive() only works on objects.
+
+ref(), on the other hand, can take any value type and create an object that exposes the inner value under a .value property

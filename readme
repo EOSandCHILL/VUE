@@ -42,6 +42,18 @@ v-bind example:
 
 Tells Vue to find and set the value of the ref attribute to something which is passed in between the opening and closing double qoutes and in there you can reference a value of your data object which is vueLink in this example.
 
+--Methods in Vue Apps--
+
+Methods allow us to define functions which should execute when something happens. Methods takes an object which will be full of methods/functions. THEY MUST BE FUNCTIONS because they need to be callable as functions (original or shorthand functions).
+
+--Working with Data inside of a Vue App--
+
+instead of returning hardcoded strings we can output strings that are defined in data. in order to usae these strings we need to use the this keyword from our data and in our methods function.
+
+--Outputting Raw HTML Content with v-html--
+
+v-html is used to update a element's inner HTML with our data. it allows us to set the content between opening and closing text of an element but you now tell Vue that the content should be interpreted as HTML not text. We no longer have to use {{}} but instead the value you pass to v-html between the double qoutes would be courseGoalB. But this could cause a security issue because youre disregarding the cross side scripting attack protection that comes with using the {{}} (double curly braces)
+
 Basics:
 
 Single-File Component (SFC) - a reusable self-contained block of code that encapsulates HTML, CSS, and JavaScript that belong together, written inside a .Vue file.

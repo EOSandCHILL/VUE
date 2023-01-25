@@ -56,34 +56,27 @@ v-html is used to update a element's inner HTML with our data. it allows us to s
 
 --Understanding Event Binding--
 
+--Events & Methods--
+
 v-on allows us to react on a certain event just like onClick etc.
 
 Although you can put your logic in html when using Vue it's always best practice to put your JS logic in JS, not html.
 
+--Working with Event Arguments--
+
 We can also use v-on with "event.target.value" JS feature. in order for your event to render first you can place $ infront of event.. $event..
 
-Basics:
+--Using the Native Event Object--
 
-Single-File Component (SFC) - a reusable self-contained block of code that encapsulates HTML, CSS, and JavaScript that belong together, written inside a .Vue file.
+using on submit can be done differently in vue. typically in vanilla JS when we submit something but want to prevent something from happeneing after we submit we use event.preventDefault() which wworks fine in Vue but we can also use this for wexample:
 
-Declarative Rendering - a template syntax that extends HTML, we can describe how the HTML should look like based on the JavaScript state. When the state changes, the HTML updates automatically.
+<form v-on:submit.prevent="signUp">
 
-JavaScript State - describes the status of the entire program or an individual object.
+instead of
 
-State that can trigger updates when changed are considered reactive. We can declare reactive state using Vue's reactive() API. Objects created from reactive() are JavaScript Proxies that work just like normal objects. reactive() only works on objects.
+signUp() {
+event.preventDefault();
+alert("Submitted!");
+}
 
-ref(), on the other hand, can take any value type and create an object that exposes the inner value under a .value property
-
-VUE Attributes:
-
-v-model
-
-used on a component to implement a two-way binding.
-
-v-on
-
-used for listening to DOM events and running some JavaScript when triggered (event listener for on click, on submit, etc.)
-
-v-for
-
-used to render a list of items based on an array
+--Locking Content with v-once--

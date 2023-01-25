@@ -54,6 +54,14 @@ instead of returning hardcoded strings we can output strings that are defined in
 
 v-html is used to update a element's inner HTML with our data. it allows us to set the content between opening and closing text of an element but you now tell Vue that the content should be interpreted as HTML not text. We no longer have to use {{}} but instead the value you pass to v-html between the double qoutes would be courseGoalB. But this could cause a security issue because youre disregarding the cross side scripting attack protection that comes with using the {{}} (double curly braces)
 
+--Understanding Event Binding--
+
+v-on allows us to react on a certain event just like onClick etc.
+
+Although you can put your logic in html when using Vue it's always best practice to put your JS logic in JS, not html.
+
+We can also use v-on with "event.target.value" JS feature. in order for your event to render first you can place $ infront of event.. $event..
+
 Basics:
 
 Single-File Component (SFC) - a reusable self-contained block of code that encapsulates HTML, CSS, and JavaScript that belong together, written inside a .Vue file.

@@ -80,3 +80,21 @@ alert("Submitted!");
 }
 
 --Locking Content with v-once--
+
+The v-once directive is used to avoid unwanted re-renders of an element. It treats the element as a static content after rendering it once for the first time. This improves performance as it does not have to be rendered again.
+
+--Data Binding + Event Binding = Two-Way Binding--
+
+v-model is a shortcut for v-bind:value and v-on:input
+
+--Introducing Computed Properties--
+
+sometimes methods arent the best to use when outputting dynamically calculated values so we use Computed Properties instead for performance purposes. It essentially does the same thing as methods except it works in a more independent manner. Vue will be aware of their dependencies and only reexecute them if one of their dependencies changed. We can use Computed Properties like we use data and place them inside of {{}} unlike methods which can only be used inside of html tags.
+
+--Working with Watchers--
+
+Watchers are basically a function you can tell vue to execute when one of its dependencies change. we can actually use watchers instead of computed properties but it could work but it doesnt mean its the best option.
+
+When using watcher(s) we repeat another data object and we also do not have to use the this keyword inside of the watch method because the original object is being watched and automatically updating the watched objects most recent changes.
+
+A problem arises though when we have a computed property that would use more than one dependency

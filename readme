@@ -120,3 +120,53 @@ or we can use:
 
 class="demo"
 :class="{active: boxASelected}"
+
+--v-if, v-else and v-else-if--
+
+v-if (if statement)
+
+Conditionally render an element or a template fragment based on the truthy-ness of the expression value.
+
+v-else (if else statement)
+
+Does not expect expression
+
+Can only be used on an element that comes directly after an element with v-if on it.
+you CANNOT have another element inbetween.
+
+v-else-if (if else statement)
+
+Restriction: previous sibling element must have v-if or v-else-if.
+
+v-show
+
+Toggle the element's visibility based on the truthy-ness of the expression value.
+
+Works by setting the display CSS property via inline styles, and will try to respect the initial display value when the element is visible. It also triggers transitions when its condition changes.
+
+v-if vs v-show
+
+v-if removes and adds elements to and from the DOM which really impacts which elements are apart of the DOM. v-show just hides and show items with CSS.
+
+Which is best? Well showing and hiding w/ CSS means you dont have to add and remove elements all the time which is great because adding and removing elements can degrade your apps performance. But it also means you have a lot of elements in your DOM that arent needed at the moment which is also not ideal.
+
+So whats the rule of thumb for v-if vs v-show?
+
+You should only use v-if and only fallbacck to v-show if you have an element that has a visibility status that changes a lot like a toggle button or something similar.
+
+--Rendering Lists of Data--
+
+v-for
+
+v-for helps output content that is repeated like lists of products etc.
+
+Renders the element or template block multiple times based on the source data.
+
+v-for expects: Arrays, Objects, numbers, strings, Iterable
+
+<li v-for="goal in goals">Goal</li> explanation: we loop through an array with the "in" keyword when using v-for and now goal will hold every goal in goals for every iteration v-for foes for us. v-for will go through all the goals and give us access to every goal. This is useful because our goals are just strings and goals is just an array of strings.
+Also we only have access to the goal inside of the element its in not outside of it.
+
+--Diving Deeper Into v-for--
+
+to get the index of a list we can use this syntax: <li v-for="(goal, index) in goals">{{ goal }} - {{ index }}</li>

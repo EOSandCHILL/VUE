@@ -98,3 +98,25 @@ Watchers are basically a function you can tell vue to execute when one of its de
 When using watcher(s) we repeat another data object and we also do not have to use the this keyword inside of the watch method because the original object is being watched and automatically updating the watched objects most recent changes.
 
 A problem arises though when we have a computed property that would use more than one dependency
+
+--v-bind and v-on Shorthands--
+
+v-on shortcut is @ (use just the @ symbol for v-on and can still add modifiers)
+v-bind shortcut is :
+
+--Dynamic Styling with Inline Styles--
+
+in view we can change the style of things on the page in reaction to clicks, user input, etc.
+
+using vue we can set styles through css and css classes or inline styles by using the style attribute which is available on any html element
+
+Although this is great its not recommended to use inline css styling
+
+--Adding CSS Classes Dynamically--
+
+Vue has a special syntax for adding css classes dynamically and styling them. we could create a class in css and then add it to our class in html like: :class="boxASelected ? 'demo active' : 'demo'"
+
+or we can use:
+
+class="demo"
+:class="{active: boxASelected}"

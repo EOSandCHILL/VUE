@@ -170,3 +170,48 @@ Also we only have access to the goal inside of the element its in not outside of
 --Diving Deeper Into v-for--
 
 to get the index of a list we can use this syntax: <li v-for="(goal, index) in goals">{{ goal }} - {{ index }}</li>
+
+we can also use v-for to loop through objects. Example:
+
+      <ul>
+        <li v-for="(value, key) in { name: 'Max', age: 31 }">
+          {{ key }}: {{ value }}
+        </li>
+      </ul>
+
+above we loop through a profile object and display the persons name and age
+
+we can also llop through numbers. example:
+
+      <ul>
+        <li v-for="num in 10">{{ num }}</li>
+      </ul>
+
+--Removing List Items--
+
+JS:
+removeGoal(idx) {
+this.goals.splice(idx, 1);
+},
+
+HTML:
+
+<ul v-else>
+<li v-for="(goal, index) in goals" @click="removeGoal(index)">
+{{ goal }} - {{ index }}
+</li>
+</ul>
+
+--Lists & Keys--
+
+The key attribute
+
+rule of thumb -- If youre using v-for add a key. key wants a unique identification criteria for every item it's outputting here. So we should bind it to a dynamic value with v-bind or just the : (colon) of course.
+
+The key special attribute is used as a hint for Vue's virtual DOM algorithm to keep track of a node's identity. That way, Vue knows when it can reuse and patch existing nodes and when it needs to reorder or recreate them.
+
+keys are no longer necessary on v-if/v-else/v-else-if branches, since Vue now automatically generates unique keys.
+
+Once the key is used we will noticed that the data thats been entered is no longer lost when array index #s shift. This happens because Vue is now able to tell the different DOM elements apart and detect that the first DOM element now needs to be removed in order to not lose any data attached to the second element.
+
+"key" summary: you should add a "key" with a unique identification criteria when using v-for. It should be added to help Vue tell the different elements apart and make sure that state such as entered values does not get lost.

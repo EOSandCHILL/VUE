@@ -215,3 +215,36 @@ keys are no longer necessary on v-if/v-else/v-else-if branches, since Vue now au
 Once the key is used we will noticed that the data thats been entered is no longer lost when array index #s shift. This happens because Vue is now able to tell the different DOM elements apart and detect that the first DOM element now needs to be removed in order to not lose any data attached to the second element.
 
 "key" summary: you should add a "key" with a unique identification criteria when using v-for. It should be added to help Vue tell the different elements apart and make sure that state such as entered values does not get lost.
+
+--Vue refs--
+
+ref is a special attribute, similar to the key attribute discussed in the v-for chapter. It allows us to obtain a direct reference to a specific DOM element or child component instance after it's mounted. This may be useful when you want to, for example, programmatically focus an input on component mount, or initialize a 3rd party library on an element.
+
+--Vue App Lifecycle - Theory--
+link: https://vuejs.org/api/options-lifecycle.html
+
+0. createApp({...})
+
+1. beforeCreate() - before the app has been fully initialized
+
+2. created() - Called after the instance has finished processing all state-related options.
+
+3. compile template - where all of the dynamic placeholders, interpolations and etc are removed and replaced with concrete values that should be shown to the user
+
+4. beforeMount() - Called right before the component is to be mounted. happens right before Vue actually brings something on to the screen.
+
+5. mounted() - something is now seen on the screen
+
+6. Mounted Vue Instance
+
+7. Data changed
+
+8. beforeUpdate() - Called right before the component is about to update its DOM tree due to a reactive state change.
+
+9. updated() - Called after the component has updated its DOM tree due to a reactive state change.
+
+10. beforeUnmount() - called right before a component instance is to be unmounted.
+
+11. unmounted() - Called after the component has been unmounted.
+
+12. errorCaptured() - Called when an error propagating from a descendant component has been captured.

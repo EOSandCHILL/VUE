@@ -248,3 +248,7 @@ link: https://vuejs.org/api/options-lifecycle.html
 11. unmounted() - Called after the component has been unmounted.
 
 12. errorCaptured() - Called when an error propagating from a descendant component has been captured.
+
+-- Vue Components--
+
+we can create a component by creating an app likie usual and calling the component method on it. this tells vue that we want to create a new component. for the first argument always use a '-' when naming youre compenent to avoid the name clashing with other names in html. lets remember that a Vue component is just another Vue app the only difference is that it belongs to another app so in the second argument we will create an app inside of our component. Components allow devs to easily replicate an encapsulated piece of HTML code with attached data and logic.

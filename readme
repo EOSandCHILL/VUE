@@ -4,7 +4,7 @@ repo link: https://github.com/EOSandCHILL/VUE
 
 This readMe will be used for taking notes and displaying my progress towards learning view
 
------Vue Basics & Core Concepts-----
+                      -----Vue Basics & Core Concepts-----
 
 --Creating and Connecting Vue App Instances--
 
@@ -223,25 +223,25 @@ ref is a special attribute, similar to the key attribute discussed in the v-for 
 --Vue App Lifecycle - Theory--
 link: https://vuejs.org/api/options-lifecycle.html
 
-0. createApp({...})
+0.  createApp({...})
 
-1. beforeCreate() - before the app has been fully initialized
+1.  beforeCreate() - before the app has been fully initialized
 
-2. created() - Called after the instance has finished processing all state-related options.
+2.  created() - Called after the instance has finished processing all state-related options.
 
-3. compile template - where all of the dynamic placeholders, interpolations and etc are removed and replaced with concrete values that should be shown to the user
+3.  compile template - where all of the dynamic placeholders, interpolations and etc are removed and replaced with concrete values that should be shown to the user
 
-4. beforeMount() - Called right before the component is to be mounted. happens right before Vue actually brings something on to the screen.
+4.  beforeMount() - Called right before the component is to be mounted. happens right before Vue actually brings something on to the screen.
 
-5. mounted() - something is now seen on the screen
+5.  mounted() - something is now seen on the screen
 
-6. Mounted Vue Instance
+6.  Mounted Vue Instance
 
-7. Data changed
+7.  Data changed
 
-8. beforeUpdate() - Called right before the component is about to update its DOM tree due to a reactive state change.
+8.  beforeUpdate() - Called right before the component is about to update its DOM tree due to a reactive state change.
 
-9. updated() - Called after the component has updated its DOM tree due to a reactive state change.
+9.  updated() - Called after the component has updated its DOM tree due to a reactive state change.
 
 10. beforeUnmount() - called right before a component instance is to be unmounted.
 
@@ -249,6 +249,45 @@ link: https://vuejs.org/api/options-lifecycle.html
 
 12. errorCaptured() - Called when an error propagating from a descendant component has been captured.
 
--- Vue Components--
+                            -----Vue Components-----
 
-we can create a component by creating an app likie usual and calling the component method on it. this tells vue that we want to create a new component. for the first argument always use a '-' when naming youre compenent to avoid the name clashing with other names in html. lets remember that a Vue component is just another Vue app the only difference is that it belongs to another app so in the second argument we will create an app inside of our component. Components allow devs to easily replicate an encapsulated piece of HTML code with attached data and logic.
+We can create a component by creating an app likie usual and calling the component method on it. this tells vue that we want to create a new component. for the first argument always use a '-' when naming youre compenent to avoid the name clashing with other names in html. lets remember that a Vue component is just another Vue app the only difference is that it belongs to another app so in the second argument we will create an app inside of our component. Components allow devs to easily replicate an encapsulated piece of HTML code with attached data and logic.
+
+--"Props" (Parent => Child Communication)--
+
+props is short for properties and we should think of props as custome html attributes. we can use props to pass in data and we do this by making vue aware of the props that we want to accept on our component. we can do this by going into our component file and aading a specific new key unders export default and create "props: []". once its created we shouldf pass in all of the attributes we want to accept on this component and we add them as strings.
+
+Once we enter prop names into the array we can treat the props like daya properties and add them into {{ propName }}.
+
+--Prop Behavior & Changing Props--
+
+We also use props for parent child communication! The parent component or main app in our case communicates to its child html element/child component which is the <friend-contact> component. The <friend-contact> component is a child of the App because its being used in the template of the app and the App would be the parent.
+
+Props should not be mutated. Whaat does this mean? the data passed into <friend-contact> should only be changed in App not in <friend-contact>. this is called a unidirectional data flow.
+
+--Validating Props--
+
+we can take the array where we defined our props and turn it into an object that can require certain values. Example:
+
+},
+currentOccupation: {
+type: String,
+required: true,
+},
+currentSkills: {
+type: String,
+required: false,
+default: "N/A",
+}
+
+--Working with Dynamic Prop Values--
+
+props can be more than strings anbd they can be binded to dynamic values.
+
+--Emitting Custom Events (Child => Parent Communication)--
+
+$emit() is a built in method that can be called from inside a vue component under this keyword. This allows the emitting of custom events that can be listened to from inside the parent component. emit() wants atleast one argument which is typically the name of the custom event. we can listen to these custom events just as we do with the clicking of buttons.
+
+every argument thats passed after the first is simply data that you pass together with your event
+
+In app.vue we point at the toggleFavoriteStatus method on our own event and the toggleFavoriteStatus method will now recieve this friend ID

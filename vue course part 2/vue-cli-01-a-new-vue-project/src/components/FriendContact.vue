@@ -1,33 +1,69 @@
 <template>
   <li>
-    <h2>{{ friend.name }}</h2>
+    <h2>{{ fullName }} {{ isFavorite === true ? "(Favorite)" : "" }}</h2>
+    <button @click="toggleFavorite">Toggle Favorite</button>
     <button @click="toggleDetails">
       {{ detailsAreVisible ? "Hide" : "Show" }} Details
     </button>
     <ul v-if="detailsAreVisible">
-      <li><strong>Age:</strong> {{ friend.age }}</li>
-      <li><strong>Occupation:</strong> {{ friend.occupation }}</li>
-      <li><strong>Tech Stack:</strong> {{ friend.stack }}</li>
-      <li><strong>Phone:</strong> {{ friend.phone }}</li>
-      <li><strong>Email:</strong> {{ friend.email }}</li>
+      <li><strong>Age:</strong> {{ currentAge }}</li>
+      <li><strong>Occupation:</strong> {{ currentOccupation }}</li>
+      <li><strong>Skills:</strong> {{ currentSkills }}</li>
+      <li><strong>Phone:</strong> {{ phoneNumber }}</li>
+      <li><strong>Email:</strong> {{ emailAddress }}</li>
     </ul>
   </li>
 </template>
 
 <script>
 export default {
+  // props: [
+  //   "fullName",
+  //   "currentAge",
+  //   "currentOccupation",
+  //   "currentSkills",
+  //   "phoneNumber",
+  //   "emailAddress",
+  // ],
+  props: {
+    id: {
+      type: String,
+      required: true,
+    },
+    fullName: {
+      type: String,
+      required: true,
+    },
+    currentAge: {
+      type: String,
+      required: true,
+    },
+    currentOccupation: {
+      type: String,
+      required: true,
+    },
+    currentSkills: {
+      type: String,
+      required: false,
+      default: "N/A",
+    },
+    phoneNumber: {
+      type: String,
+      required: true,
+    },
+    emailAddress: {
+      type: String,
+      required: true,
+    },
+    isFavorite: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+  },
   data() {
     return {
       detailsAreVisible: false,
-      friend: {
-        id: "jerry",
-        name: "mackintech.eth",
-        age: 30,
-        occupation: "Software Engineer",
-        stack: "Vue.JS, React.JS, Java, Node.JS, SQL, Docker, AWS",
-        phone: "803-703-3353",
-        email: "mackintechofficial@gmail.com",
-      },
     };
   },
   watch: {
@@ -39,6 +75,9 @@ export default {
   methods: {
     toggleDetails() {
       this.detailsAreVisible = !this.detailsAreVisible;
+    },
+    toggleFavorite() {
+      this.$emit("toggle-favorite", this.id);
     },
   },
 };

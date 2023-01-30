@@ -4,9 +4,19 @@
       <h1>My Friends</h1>
     </header>
     <ul>
-      <friend-contact></friend-contact>
-      <friend-contact></friend-contact>
-      <friend-contact></friend-contact>
+      <friend-contact
+        v-for="friend in friends"
+        :key="friend.id"
+        :id="friend.id"
+        :full-name="friend.name"
+        :current-age="friend.age"
+        :current-occupation="friend.occupation"
+        :current-skills="friend.skills"
+        :phone-number="friend.phone"
+        :email-address="friend.email"
+        :is-favorite="friend.isFavorite"
+        @toggle-favorite="toggleFavoriteStatus"
+      ></friend-contact>
     </ul>
   </section>
 </template>
@@ -20,30 +30,33 @@ export default {
       friends: [
         {
           id: "jerry",
-          name: "mackintech.eth",
+          name: "Kentrell Mack",
           age: 30,
           occupation: "Software Engineer",
-          stack: "Vue.JS, React.JS, Java, Node.JS, SQL, Docker, AWS",
+          skills: "Vue.JS, React.JS, Java, Node.JS, SQL, Docker, AWS",
           phone: "803-703-3353",
           email: "mackintechofficial@gmail.com",
+          isFavorite: false,
         },
         {
           id: "ben",
           name: "Ben Patton",
           age: 30,
           occupation: "Software Engineer",
-          stack: "React.JS, Node.JS, AWS",
+          skills: "React.JS, Node.JS, AWS",
           phone: "843-333-3333",
           email: "benpatton@gmail.com",
+          isFavorite: false,
         },
         {
           id: "adrian",
           name: "Adrian Burroughs",
           age: 28,
           occupation: "Construction Manager",
-          stack: "N/A",
+          skills: "Building new homes",
           phone: "803-555-4455",
           email: "adrianburroughs@gmail.com",
+          isFavorite: true,
         },
       ],
     };
@@ -55,7 +68,12 @@ export default {
     //
   },
   methods: {
-    //
+    toggleFavoriteStatus(friendId) {
+      const identifiedFriend = this.friends.find(
+        (friend) => friend.id === friendId
+      );
+      identifiedFriend.isFavorite = !identifiedFriend.isFavorite;
+    },
   },
 };
 </script>

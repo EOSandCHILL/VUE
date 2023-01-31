@@ -291,3 +291,32 @@ $emit() is a built in method that can be called from inside a vue component unde
 every argument thats passed after the first is simply data that you pass together with your event
 
 In app.vue we point at the toggleFavoriteStatus method on our own event and the toggleFavoriteStatus method will now recieve this friend ID
+
+--Defining & Validating Custom Events--
+
+emits is the counterpart to props. In props you define which props the component recieves and in emit youll define which custom events your component will eventually emit. This is done to document your component so other developers know how your component works and to which events they can listen.
+
+props send data into a component and events send data out of a component
+
+-------components summary---------
+
+Component Communication Overview:
+
+1.components are used to build UIs by combining them
+2.components build "parent-child" relations and use "unidirectional data flows" for communication
+
+Props overview (parent => child):
+
+1."Props" are used to pass data from a parent to a child component
+2.Props should be defined in advance, possibly in great detail (type, required etc)
+
+Custom Events Overview (child => parent):
+
+1."Custom Events" are emitted (via $emit) to trigger a method in a parent component
+2.Custom events can carry data which can be used in a called method
+
+Provide Inject Overview:
+
+1.If data needs to be passed across multiple components ("pass through"), you can use provide/inject
+2.Provide data in a parent component, inject into a child component
+3.Do not use provide eject to replace the use of custom events and props

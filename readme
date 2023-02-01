@@ -320,3 +320,39 @@ Provide Inject Overview:
 1.If data needs to be passed across multiple components ("pass through"), you can use provide/inject
 2.Provide data in a parent component, inject into a child component
 3.Do not use provide eject to replace the use of custom events and props
+
+--vuejs local vs global components--
+
+A global component is a component that can be used anywhere in an application, including within other components. On the other hand, a local component is a component that is not registered globally, and can therefore only be used on components where it is registered.
+
+--vue styling--
+
+doesnt matter where you add your styling it will always be treated as global styling. If we want to not utilize styling globally we need to use scoped styling.
+
+--vue slots--
+
+we can use a component as a wrapper around dynamic content. a great example its the card style in web development where we have a border and a shadow that surrounds content making it look like a digital card. we can use slots to wrap content inside of a card component. we use the slots tags around html content. slots allow us to receive HTML content that may be using vue features from outside of the component. slots are like props but props are for data and slots are for HTML code for the template code a component needs.
+
+--component deep dive summary--
+
+component registration and styles:
+
+components can be registered globally or locally: prefer local registration
+styles can be global or scoped to a component: prefer scoped for most components
+
+slots:
+
+slots can be used to add a "placeholder" for dynamic html code
+multiple named slots are possible, default fallbacks can be provided, scoped slots allow advanced use cases.
+
+dynamic components:
+
+components can be swapped dynamically via the built in "component" component.
+component caching can be added via the "keep alive" component
+
+teleport and styles guide:
+
+DOM structure can be mnanipulated via teleport it keeps the component hierarchy
+consider following the official style guide to keep your code clean and understandable.
+
+--Forms--
